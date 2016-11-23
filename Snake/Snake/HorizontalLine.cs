@@ -10,23 +10,24 @@ namespace Snake
     {
         List<Point> pList;
 
-        public HorizontalLine()
+        public HorizontalLine(int xLeft, int xRigth, int y, char sym)
         {
             pList = new List<Point>();
 
-            Point p1 = new Point(4, 3, '*');
-            Point p2 = new Point(5, 3, '*');
-            Point p3 = new Point(6, 3, '*');
-
-            pList.Add (p1);
-            pList.Add (p2);
-            pList.Add (p3);
+            for(int x = xLeft; x <= xRigth; x++)
+            {
+                Point p = new Point(x, y, sym);
+                pList.Add(p);
+            }
 
         }
 
-        public void Draw()
+        public void Drow()
         {
-            fre
+            foreach (Point p in pList)
+            {
+                p.Draw();
+            }
         }
     }
 }
