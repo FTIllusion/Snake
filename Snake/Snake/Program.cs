@@ -18,9 +18,9 @@ namespace Snake
 
             List<int> newList = new List<int>();
 
+            newList.Add(4);
             newList.Add(2);
-            newList.Add(0);
-            newList.Add(3);
+            newList.Add(9);
 
             foreach(int i in newList)
             {
