@@ -30,6 +30,9 @@ namespace Snake
             hLine.Drow();
             hLine2.Drow();
 
+            Point p = new Point(4, 5,'*');
+            Snake snake = new Snake(p, 10, Direction.UP);
+            snake.Drow();
             Console.ReadLine();
         }
 
