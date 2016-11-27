@@ -36,10 +36,6 @@ namespace Snake
 
             while (true)
             {
-
-
-                Console.SetCursorPosition(1, 22);
-                Console.WriteLine(rand.Next(2, 22 - 2));
                 if (snake.headOnHit(foodPoint))
                 {
                     do
