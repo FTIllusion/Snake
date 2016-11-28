@@ -12,23 +12,19 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Random rand = new Random();
-
-            Console.SetBufferSize(80, 25);
-
             HorizontalLine hLine = new HorizontalLine(0, 78, 0, '+');
             HorizontalLine hLine2 = new HorizontalLine(0, 78, 23, '+');
             VerticalLine vLine = new VerticalLine(0, 22, 0, '+');
             VerticalLine vLine2 = new VerticalLine(0, 22, 78, '+');
 
-            vLine.Drow();
-            vLine2.Drow();
-            hLine.Drow();
-            hLine2.Drow();
+            vLine.Draw();
+            vLine2.Draw();
+            hLine.Draw();
+            hLine2.Draw();
 
             Point p = new Point(4, 5,'*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Drow();
+            snake.Draw();
 
             FoodCreator foodCreator = new FoodCreator(78, 22, '$');
             Point foodPoint = foodCreator.CreateFood();
