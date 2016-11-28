@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Snake :Figure
+    class Snake : Figure
     {
         Direction direction;
 
-        public Snake (Point tail, int leght, Direction _direction)
+        public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
             pList = new List<Point>();
-
-            for(int i = 0; i < leght; i++)
+            for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
                 p.Move(i, direction);
@@ -42,35 +41,29 @@ namespace Snake
             return nextPoint;
         }
 
-        public void HandleKey(ConsoleKey Key)
+        public void HandleKey(ConsoleKey key)
         {
-            if (Key == ConsoleKey.LeftArrow)
+            if (key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;
-            else if (Key == ConsoleKey.RightArrow)
+            else if (key == ConsoleKey.RightArrow)
                 direction = Direction.RIGHT;
-            else if (Key == ConsoleKey.UpArrow)
-                direction = Direction.UP;
-            else if (Key == ConsoleKey.DownArrow)
+            else if (key == ConsoleKey.DownArrow)
                 direction = Direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
         }
 
-        internal bool headOnHit(Point food)
+        internal bool Eat(Point food)
         {
-            Point nextPoint = GetNextPoint();
-            if (food.x == nextPoint.x && food.y == nextPoint.y)
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
             {
-                food.Clear();
-                food.sym = '*';
-                food.Draw();
+                food.sym = head.sym;
                 pList.Add(food);
                 return true;
             }
-                
             else
                 return false;
-
-                
         }
-
     }
 }
